@@ -3,7 +3,7 @@
                 {
                   "mode": "NULLABLE",
                   "name": "ts",
-                  "type": "INTEGER"
+                  "type": "STRING"
                 },
                 {
                   "mode": "NULLABLE",
@@ -13,7 +13,7 @@
                 {
                   "mode": "NULLABLE",
                   "name": "profile_identity",
-                  "type": "INTEGER"
+                  "type": "STRING"
                 },
                 {
                   "mode": "NULLABLE",
@@ -132,7 +132,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -142,7 +142,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -255,7 +255,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -265,7 +265,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -398,7 +398,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -408,7 +408,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -506,7 +506,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -516,7 +516,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -629,7 +629,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -639,7 +639,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -737,7 +737,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -747,7 +747,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -880,7 +880,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -890,7 +890,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1013,7 +1013,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1023,7 +1023,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1146,7 +1146,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1156,7 +1156,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1274,7 +1274,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1284,7 +1284,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1379,7 +1379,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "eventProps_Account_ID",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1389,12 +1389,12 @@
                   {
                     "mode": "NULLABLE",
                     "name": "eventProps_User_ID",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
                     "name": "eventProps_Client_ID",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1442,7 +1442,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "ts",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
@@ -1452,7 +1452,7 @@
                   {
                     "mode": "NULLABLE",
                     "name": "profile_identity",
-                    "type": "INTEGER"
+                    "type": "STRING"
                   },
                   {
                     "mode": "NULLABLE",
