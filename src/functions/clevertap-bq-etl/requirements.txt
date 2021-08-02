@@ -1,0 +1,7 @@
+# Function dependencies
+
+google-cloud-bigquery==1.8.1
+google-cloud-error-reporting
+google-cloud-logging
+
+
