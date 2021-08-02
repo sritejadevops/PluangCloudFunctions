@@ -1,54 +1,58 @@
 import json
 import re
+import logging
 from google.cloud import bigquery
 from google.cloud import error_reporting
+import google.cloud.logging
+
+BQ = bigquery.Client()
+ERR_CLIENT = error_reporting.Client()
+LOG_CLIENT = google.cloud.logging.Client()
+LOG_CLIENT.get_default_handler()
+LOG_CLIENT.setup_logging()
+
+with open("./config.json") as config_file:
+    config_data = json.load(config_file)
+    BQ_DATASET = config_data["dataSetName"]
 
 
-BQ=bigquery.Client()
-ERR_CLIENT=error_reporting.Client()
-
-with open("./config.json") as configFile:
-    data=json.load(configFile)
-    BQ_DATASET=data["dataSetName"]
-
-
-def streamCsvFilesFromCsToBq(data,context):
+def stream_csv_files_from_cs_to_bq(data, context):
 
     bucket_name = data["bucket"]
     file_name = data["name"]
-    bqTable = getBqTableName(file_name)
+    bq_table = get_bq_table_name(file_name)
     dataset_ref = BQ.dataset(BQ_DATASET)
 
-    job_config=bigquery.LoadJobConfig(max_bad_records=20,
-                                      write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
-                                      source_format=bigquery.SourceFormat.CSV,
-                                      skip_leading_rows=1)
+    job_config = bigquery.LoadJobConfig(max_bad_records=20,
+                                        write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
+                                        source_format=bigquery.SourceFormat.CSV,
+                                        skip_leading_rows=1)
 
-    job_config.schema = getBqSchema(bqTable)
+    job_config.schema = get_bq_schema(bq_table)
 
-    uri="gs://"+bucket_name+"/"+file_name
+    uri = "gs://"+bucket_name+"/"+file_name
 
     try:
-        load_job=BQ.load_table_from_uri(uri,
-                                        dataset_ref.table(bqTable),
-                                        job_config=job_config)
+        load_job = BQ.load_table_from_uri(uri,
+                                          dataset_ref.table(bq_table),
+                                          job_config=job_config)
 
-        print("Starting job with id: {}".format(load_job.job_id))
+        logging.info("Starting job with id: {}".format(load_job.job_id))
 
-        print("file {}".format(data["name"]))
+        logging.info("file {}".format(data["name"]))
 
         load_job.result()
-        print("job finished")
+        logging.info("job finished")
 
-        destination_table=BQ.get_table(dataset_ref.table(bqTable))
-        print("Total no. of rows: {}".format(destination_table.num_rows))
+        destination_table = BQ.get_table(dataset_ref.table(bq_table))
+        logging.info("Total no. of rows: {}".format(destination_table.num_rows))
 
     except Exception as exception:
-        print(exception)
         ERR_CLIENT.report_exception()
+        raise exception
 
 
-def getBqTableName(file_name):
+def get_bq_table_name(file_name):
 
     split_file_name = file_name.split("-")
     word_list_for_table = []
@@ -59,15 +63,15 @@ def getBqTableName(file_name):
     return "_".join(word_list_for_table)
 
 
-def getBqSchema(bqTable):
+def get_bq_schema(bq_table):
 
-    with open("./schema.json") as schemaFile:
-        schemaData=json.load(schemaFile)
-        schemaConfig = []
-        for column in schemaData[bqTable]:
-            schemaConfig.append(bigquery.SchemaField(column["name"], column["type"], mode=column["mode"]))
+    with open("./schema.json") as schema_file:
+        schema_data = json.load(schema_file)
+        schema_config = []
+        for column in schema_data[bq_table]:
+            schema_config.append(bigquery.SchemaField(column["name"], column["type"], mode=column["mode"]))
 
-    return schemaConfig
+    return schema_config
 
 
 
