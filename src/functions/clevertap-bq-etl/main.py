@@ -23,7 +23,7 @@ def stream_csv_files_from_cs_to_bq(data, context):
     bq_table = get_bq_table_name(file_name)
     dataset_ref = BQ.dataset(BQ_DATASET)
 
-    job_config = bigquery.LoadJobConfig(max_bad_records=20,
+    job_config = bigquery.LoadJobConfig(max_bad_records=30,
                                         write_disposition=bigquery.WriteDisposition.WRITE_APPEND,
                                         source_format=bigquery.SourceFormat.CSV,
                                         skip_leading_rows=1)
@@ -49,6 +49,7 @@ def stream_csv_files_from_cs_to_bq(data, context):
 
     except Exception as exception:
         ERR_CLIENT.report_exception()
+        logging.exception(load_job.errors)
         raise exception
 
 
